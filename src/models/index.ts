@@ -1,2 +1,8 @@
 import categoryModel, { ICategory } from "./category.model";
-export {categoryModel, ICategory}
+import authorModel, { IAuthor, IImage } from './author.model'
+export {
+    categoryModel,
+    ICategory,
+    authorModel,
+    IAuthor,
+    IImage }

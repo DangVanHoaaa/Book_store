@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Types } from 'mongoose'
 
-// 1. Định nghĩa Interface kiểu dữ liệu cho Category trong TypeScript
+
 export interface ICategory extends Document {
   title: string
   slug: string
@@ -12,7 +12,7 @@ export interface ICategory extends Document {
   updatedAt?: Date
 }
 
-// 2. Khởi tạo Mongoose Schema khớp với Interface ở trên
+
 const categorySchema: Schema<ICategory> = new Schema(
   {
     title: {
@@ -25,7 +25,7 @@ const categorySchema: Schema<ICategory> = new Schema(
       lowercase: true,
       unique: true
     },
-    // Danh mục cha (cho phép danh mục đa cấp: Cha -> Con)
+    
     parentId: {
       type: Schema.Types.ObjectId,
       ref: 'Category',
@@ -33,11 +33,11 @@ const categorySchema: Schema<ICategory> = new Schema(
     },
     status: {
       type: Boolean,
-      default: true // true: Đang hiện, false: Đang ẩn
+      default: true 
     },
     deleted: {
       type: Boolean,
-      default: false // Xóa mềm (Soft delete)
+      default: false 
     },
     deletedAt: {
       type: Date,
@@ -45,9 +45,9 @@ const categorySchema: Schema<ICategory> = new Schema(
     }
   },
   {
-    timestamps: true // Tự động sinh 2 cột createdAt và updatedAt
+    timestamps: true 
   }
 )
 
-// 3. Xuất Model với kiểu ICategory
+
 export default mongoose.model<ICategory>('Category', categorySchema)
