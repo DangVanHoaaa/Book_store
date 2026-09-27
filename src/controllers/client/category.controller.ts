@@ -7,7 +7,7 @@ export const getCategoryTree = async (req: Request, res: Response): Promise<Resp
         const categoryTree = await categoryService.getAllCategoriesForClient()
         return sendSuccess( res,200,'Lấy danh mục thành công',categoryTree)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
 
@@ -21,6 +21,6 @@ export const getCategory = async(req: Request, res: Response): Promise<Response>
             return sendError(res,404,'Không tìm thấy danh mục cần tìm')
         }
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }

@@ -8,7 +8,7 @@ export const getAuthors = async (req: Request, res: Response): Promise<Response>
         const authors = await authorService.getAuthorsForClient()
         return sendSuccess(res,200,'Lấy danh sách tác giả thành công',authors)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
 
@@ -23,6 +23,6 @@ export const getAuthorById = async (req:Request, res: Response): Promise<Respons
         }
         return sendSuccess(res,200,'Lấy tác giả thành công',author)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }

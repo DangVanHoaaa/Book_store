@@ -8,7 +8,7 @@ export const createAuthor = async (req: Request, res: Response): Promise<Respons
         const author = await authorService.createAuthor(req.body)
         return sendSuccess(res,201,'Tạo tác giả thành công',author)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
 
@@ -18,7 +18,7 @@ export const getAuthors = async (req: Request, res: Response): Promise<Response>
         const authors = await authorService.getAuthorsForAdmin()
         return sendSuccess(res,200,'Lấy danh sách tác giả thành công',authors)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
 
@@ -33,7 +33,7 @@ export const getAuthorById = async (req:Request, res: Response): Promise<Respons
         }
         return sendSuccess(res,200,'Lấy tác giả thành công',author)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
 
@@ -48,7 +48,7 @@ export const updateAuthor = async( req: Request, res: Response): Promise<Respons
         }
         return sendSuccess(res,200,'Cập nhật tác giả thành công',author)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
 
@@ -63,6 +63,6 @@ export const deleteAuthor = async( req: Request, res: Response): Promise<Respons
         }
         return sendSuccess(res,200,'Xóa tác giả thành công',author)
     } catch (error: any) {
-        return sendError(res,400,error.massage)
+        return sendError(res,400,error.message)
     }
 }
