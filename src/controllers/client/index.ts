@@ -1,0 +1,1 @@
+export * as categoryClientController from './category.controller'

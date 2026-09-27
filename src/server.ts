@@ -7,7 +7,7 @@ import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 
 import connectDB from './config/db'
-
+import routes from './routes'
 const app: Express = express()
 
 // Middleware
@@ -17,6 +17,7 @@ app.use(cookieParser())
 app.use(cors())
 app.use(morgan('dev'))
 
+app.use('/api/v1', routes)
 // Route test
 app.get('/', (req: Request, res: Response) => {
   res.json({
@@ -27,7 +28,7 @@ app.get('/', (req: Request, res: Response) => {
 
 const PORT: number = Number(process.env.PORT) || 3000
 
-// Kết nối DB rồi mới start server
+// Kết nối DB 
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(` Server đang chạy tại: http://localhost:${PORT}`)
